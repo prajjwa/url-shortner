@@ -11,6 +11,11 @@ public class RandomShorten implements ShortenUrlStrategy{
     }
 
     @Override
+    public long decodeUrl(String shortUrl) {
+        return 0;
+    }
+
+    @Override
     public ShortenUrlEnum getType() {
         return ShortenUrlEnum.RANDOM;
     }

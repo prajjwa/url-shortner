@@ -6,5 +6,7 @@ public interface ShortenUrlStrategy {
 
     String shortenUrl(String longUrl);
 
+    long decodeUrl(String shortUrl);
+
     ShortenUrlEnum getType();
 }

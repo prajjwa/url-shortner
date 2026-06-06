@@ -26,6 +26,26 @@ public class Base62Shorten implements ShortenUrlStrategy {
     }
 
 
+public long decodeUrl(String shortUrl)
+{
+
+    long code=0;
+
+    int len=shortUrl.length();
+
+    for(int i=0;i<len;i++)
+    {
+        int num=(int) (shortUrl.charAt(i)-'0');
+        code+=num*(int)Math.pow(62,i);
+    }
+
+    return code;
+
+
+}
+
+
+
     @Override
     public String shortenUrl(String longUrl) {
 

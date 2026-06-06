@@ -3,10 +3,7 @@ package com.prajjwal.springprojects.url_shortner.controller;
 import com.prajjwal.springprojects.url_shortner.dtos.ShortenUrlRequest;
 import com.prajjwal.springprojects.url_shortner.service.UrlService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/urls")
@@ -28,4 +25,14 @@ public class UrlController {
         return ResponseEntity.accepted().body(shortUrl);
         
     }
+
+    @GetMapping("/decode/{shortUrl}")
+    public ResponseEntity<String> decodeUrl(@PathVariable("shortUrl") String shortUrl)
+    {
+       String longUrl=urlService.decodeUrl(shortUrl);
+
+       return ResponseEntity.accepted().body(longUrl);
+
+    }
+
 }
